@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component
 import java.text.ParseException
 
 @Component
-class RatingPublisher(private val kafkaTemplate: KafkaTemplate<String, Order>) {
+class OrderPublisher(private val kafkaTemplate: KafkaTemplate<String, Order>) {
 
     @Value("\${spring.kafka.topic.order}")
-    var topicRating: String? = null
+    var topicOrder: String? = null
 
     @Throws(ParseException::class)
-    fun sendRatingToTopic(order: Order) {
+    fun sendOrderToTopic(order: Order) {
         val message = MessageBuilder
                 .withPayload(order)
-                .setHeader(KafkaHeaders.TOPIC, topicRating)
+                .setHeader(KafkaHeaders.TOPIC, topicOrder)
                 .build()
         kafkaTemplate.send(message)
     }

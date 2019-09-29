@@ -10,7 +10,7 @@ data class Order (
         val userId: Int,
         val restaurantId: Int,
         val deliveryDate: Instant,
-        val deliveryStatus: DeliveryStatus,
+        var deliveryStatus: DeliveryStatus,
         val deliveryAddress : String,
         @Id val id: String? = null
 )

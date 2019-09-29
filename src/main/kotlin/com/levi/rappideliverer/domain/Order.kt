@@ -2,10 +2,13 @@ package com.levi.rappideliverer.domain
 
 import com.levi.rappideliverer.domain.enumeration.DeliveryStatus
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.CompoundIndex
+import org.springframework.data.mongodb.core.index.CompoundIndexes
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
 @Document
+@CompoundIndexes(CompoundIndex(name = "restaurant_deliveryStatus", def = "{'restaurantId' : 1, 'deliveryStatus': 1}"))
 data class Order (
         val userId: Int,
         val restaurantId: Int,

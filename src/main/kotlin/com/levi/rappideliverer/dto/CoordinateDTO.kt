@@ -1,11 +1,9 @@
 package com.levi.rappideliverer.dto
 
-import java.time.Instant
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
 
-data class CoordinateDTO (
-        val latitude : Double,
-        val longitude : Double,
-        val date : Instant,
-        val deliveryManId : Int,
-        val orderId : String
-)
+data class CoordinateDTO @JsonCreator constructor(@JsonProperty("latitude") val latitude: Double,
+                                                  @JsonProperty("longitude") val longitude: Double,
+                                                  @JsonProperty("deliveryManId") val deliveryManId: Int,
+                                                  @JsonProperty("orderId") val orderId: String)

@@ -12,7 +12,7 @@ import java.text.ParseException
 class OrderPublisher(private val kafkaTemplate: KafkaTemplate<String, Order>) {
 
     @Value("\${spring.kafka.topic.order}")
-    var topicOrder: String? = null
+    val topicOrder: String? = null
 
     @Throws(ParseException::class)
     fun sendOrderToTopic(order: Order) {

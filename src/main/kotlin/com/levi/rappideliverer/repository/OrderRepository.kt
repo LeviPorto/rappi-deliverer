@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface OrderRepository : MongoRepository<Order, String> {
+
     fun findByUserIdAndAndDeliveryStatus(userId : Int, deliveryStatus: DeliveryStatus) : List<Order>
+
 }

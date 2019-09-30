@@ -18,10 +18,10 @@ import java.util.HashMap
 class KafkaConsumerConfiguration {
 
     @Value("\${spring.kafka.bootstrap-servers}")
-    var bootstrapServer: String? = null
+    val bootstrapServer: String? = null
 
     @Value("\${spring.kafka.topic.group}")
-    var group: String? = null
+    val group: String? = null
 
     @Bean
     fun consumerFactory(): ConsumerFactory<String, CoordinateDTO> {
@@ -38,7 +38,7 @@ class KafkaConsumerConfiguration {
     @Bean
     fun kafkaListenerContainerFactory(): ConcurrentKafkaListenerContainerFactory<String, CoordinateDTO> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, CoordinateDTO>()
-        factory.setConsumerFactory(consumerFactory())
+        factory.consumerFactory = consumerFactory()
         return factory
     }
 }

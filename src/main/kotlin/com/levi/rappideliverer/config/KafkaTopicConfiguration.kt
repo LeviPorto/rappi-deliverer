@@ -12,7 +12,7 @@ import java.util.HashMap
 class KafkaTopicConfiguration {
 
     @Value("\${spring.kafka.bootstrap-servers}")
-    var bootstrapServer: String? = null
+    val bootstrapServer: String? = null
 
     @Bean
     fun kafkaAdmin(): KafkaAdmin {

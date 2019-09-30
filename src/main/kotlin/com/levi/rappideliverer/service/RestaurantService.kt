@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service
 class RestaurantService(val managerApi: ManagerApi) {
 
     @Cacheable(value = ["RESTAURANT_BY_DELIVERY_MAN_ID"], key = "{#coordinateDTO.deliveryManId}", unless = "#result == null")
-    fun retrieveByDeliveryMan(coordinateDTO : CoordinateDTO) : RestaurantDTO {
-        return managerApi.retrieveByDeliveryMan(coordinateDTO.deliveryManId)
-    }
+    fun retrieveByDeliveryMan(coordinateDTO : CoordinateDTO) : RestaurantDTO =
+        managerApi.retrieveByDeliveryMan(coordinateDTO.deliveryManId)
+
 
 }

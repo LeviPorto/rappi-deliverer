@@ -1,5 +1,7 @@
 package com.levi.rappideliverer.util
 
+import kotlin.math.*
+
 object DistanceCalculatorUtil {
 
     private const val EARTH_RADIUS = 6371
@@ -14,8 +16,8 @@ object DistanceCalculatorUtil {
         startLat = Math.toRadians(startLat)
         endLat = Math.toRadians(endLat)
 
-        val a = Math.pow(Math.sin(dLat / 2), 2.0) + Math.cos(startLat) * Math.cos(endLat) * Math.pow(Math.sin(dLong / 2), 2.0)
-        val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+        val a = sin(dLat / 2).pow(2.0) + cos(startLat) * cos(endLat) * sin(dLong / 2).pow(2.0)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
         return EARTH_RADIUS * c
     }

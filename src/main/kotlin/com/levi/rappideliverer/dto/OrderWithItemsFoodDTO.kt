@@ -2,9 +2,11 @@ package com.levi.rappideliverer.dto
 
 import com.levi.rappideliverer.domain.ItemFood
 import com.levi.rappideliverer.domain.Order
+import javax.validation.constraints.NotEmpty
+import javax.validation.constraints.NotNull
 
 data class OrderWithItemsFoodDTO (
-        val order: Order,
-        val itemFoods: List<ItemFood>
+        @NotNull val order: Order,
+        @NotEmpty val itemFoods: List<ItemFood>
 
 )

@@ -6,14 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class CoordinateDispatcher @Autowired
-constructor(private val coordinateCreatedListeners: List<CoordinateCreatedListener>?) {
+class CoordinateDispatcher(private val coordinateCreatedListeners: List<CoordinateCreatedListener>) {
 
     fun notifyCoordinateCreateListeners(coordinate: CoordinateDTO) {
-        if (coordinateCreatedListeners != null) {
-            for (listener in coordinateCreatedListeners) {
-                listener.coordinateWasCreated(coordinate)
-            }
+        for (listener in coordinateCreatedListeners) {
+            listener.coordinateWasCreated(coordinate)
         }
     }
 

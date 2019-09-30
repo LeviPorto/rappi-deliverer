@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service
 @Service
 class ItemFoodService(val repository : ItemFoodRepository) {
 
-    fun batchCreate(itemFoods : List<ItemFood>) : List<ItemFood> {
-        return repository.saveAll(itemFoods)
-    }
+    fun batchCreate(itemFoods : List<ItemFood>) : List<ItemFood> = repository.saveAll(itemFoods)
+
 
 }
